@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "IIT KGP ERP Fast Login",
+  "version": "1.0",
+  "description": "PIN-protected one-click login with Gmail OTP auto-fetch for IIT KGP ERP.",
+  "permissions": ["storage", "identity"],
+  "host_permissions": [
+    "https://erp.iitkgp.ac.in/*",
+    "https://gmail.googleapis.com/*"
+  ],
+  "oauth2": {
+    "client_id": "902563489048-5undr2u98lq5tj4avbb2qdvtgv40pgv6.apps.googleusercontent.com",
+    "scopes": ["https://www.googleapis.com/auth/gmail.readonly"]
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://erp.iitkgp.ac.in/SSOAdministration/login.htm*"],
+      "js": ["inject.js"],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://erp.iitkgp.ac.in/SSOAdministration/login.htm*"],
+      "js": ["crypto.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

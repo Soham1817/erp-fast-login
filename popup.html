@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { width: 290px; font-family: system-ui, sans-serif; padding: 12px; background: #0f172a; color: #f8fafc; }
+    input { width: 100%; margin: 4px 0 10px; padding: 6px; border-radius: 5px; border: 1px solid #334155; background: #1e293b; color: #fff; box-sizing: border-box; }
+    label { font-size: 12px; color: #94a3b8; }
+    button { width: 100%; padding: 8px; border: none; border-radius: 6px; background: #2563eb; color: #fff; font-weight: 600; cursor: pointer; margin-top: 6px; }
+    button.secondary { background: #334155; }
+    #msg { font-size: 12px; margin-top: 8px; color: #38bdf8; }
+  </style>
+</head>
+<body>
+  <h3 style="margin:0 0 10px;">ERP Fast Login Setup</h3>
+  <label>Roll No / User ID</label>
+  <input id="userId" placeholder="24CS10135" />
+
+  <label>ERP Password</label>
+  <input id="password" type="password" />
+
+  <label>Security Q1 (keyword) & Answer</label>
+  <input id="q1" placeholder="e.g. pet name" />
+  <input id="a1" type="password" placeholder="Answer 1" />
+
+  <label>Security Q2 (keyword) & Answer</label>
+  <input id="q2" placeholder="e.g. birth city" />
+  <input id="a2" type="password" placeholder="Answer 2" />
+
+  <label>Security Q3 (keyword) & Answer</label>
+  <input id="q3" placeholder="e.g. first school" />
+  <input id="a3" type="password" placeholder="Answer 3" />
+
+  <label>Set 4-Digit Unlock PIN</label>
+  <input id="pin" type="password" maxlength="4" placeholder="1234" />
+
+  <button id="saveBtn">Encrypt & Save</button>
+  <button id="authBtn" class="secondary">Connect Gmail (for OTP)</button>
+  <div id="msg"></div>
+
+  <script src="crypto.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
